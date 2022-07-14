@@ -12,7 +12,7 @@ const PokemonCard = ({ name, index }) => {
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeIndex}`}
           alt={name}
         />
-        <div className="card-body d-inline-flex justify-content-around">
+        <div className="card-body d-inline-flex justify-content-center">
           <h4>{name}</h4>
         </div>
       </div>

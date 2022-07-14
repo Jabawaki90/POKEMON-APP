@@ -4,9 +4,13 @@ import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PokemonList from "../components/PokemonList";
+import PaginationButton from "../components/PaginationButton";
 import { useState } from "react";
 
+const url = "https://pokeapi.co/api/v2/pokemon/";
+
 export default function Home({ data }) {
+  const [latestUrl, setLatestUrl] = useState(url);
   const [pokemonList, setPokemonList] = useState(data);
 
   return (
@@ -18,7 +22,6 @@ export default function Home({ data }) {
       </Head>
       <Navbar />
       <PokemonList pokemonList={pokemonList} />
-
       <Footer />
     </div>
   );
