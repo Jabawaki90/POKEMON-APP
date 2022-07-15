@@ -4,14 +4,14 @@ import {useRouter} from 'next/router'
 const Navbar = () => {
 
   const [pokemonSearch, setPokemonSearch] = useState('')
-  console.log(pokemonSearch)
+  
 
   const router = useRouter()
 
  const handleSubmit = (e)=>{
   e.preventDefault();
   router.push(`/${pokemonSearch}`)
-  
+  console.log(pokemonSearch)
  }
 
   return (
