@@ -1,4 +1,19 @@
+import { useState} from "react";
+import {useRouter} from 'next/router'
+
 const Navbar = () => {
+
+  const [pokemonSearch, setPokemonSearch] = useState('')
+  console.log(pokemonSearch)
+
+  const router = useRouter()
+
+ const handleSubmit = (e)=>{
+  e.preventDefault();
+  router.push(`/${pokemonSearch}`)
+  
+ }
+
   return (
     <nav className="container-fluid fixed-top navbar navbar-expand-lg navbar-light bg-dark">
       <a className="text-light navbar-brand" href="#">
@@ -57,11 +72,13 @@ const Navbar = () => {
             </div>
           </li>
         </ul>
-        <form className="row form-inline my-2 my-lg-0">
+        <form onSubmit={handleSubmit} className="row form-inline my-2 my-lg-0">
           <input
             className="col-8 mr-sm-2"
-            type="search"
-            placeholder="Search"
+            type="text"
+            onChange={(e)=>setPokemonSearch(e.target.value)}
+            value={pokemonSearch}
+            placeholder="Search Pokemon"
             aria-label="Search"
           />
           <button

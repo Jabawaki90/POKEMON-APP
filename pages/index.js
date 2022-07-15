@@ -10,8 +10,21 @@ import { useState } from "react";
 const url = "https://pokeapi.co/api/v2/pokemon/";
 
 export default function Home({ data }) {
-  const [latestUrl, setLatestUrl] = useState(url);
   const [pokemonList, setPokemonList] = useState(data);
+
+  const prevHandleClick =async()=>{
+    const response = await fetch(pokemonList.previous)
+    const result = await response.json()
+
+    setPokemonList(result)
+  }
+
+  const nextHandleClick = async()=>{
+    const response = await fetch(pokemonList.next)
+    const result = await response.json()
+
+    setPokemonList(result)
+  }
 
   return (
     <div className="mw-100">
@@ -21,7 +34,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <PokemonList pokemonList={pokemonList} />
+      <PokemonList pokemonList={pokemonList} prev={prevHandleClick} next={nextHandleClick}/>
       <Footer />
     </div>
   );
