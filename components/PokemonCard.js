@@ -1,12 +1,11 @@
 import Image from "next/image";
 
 const PokemonCard = ({ name, url }) => {
+  const startPoint = 34;
 
-  const startPoint = 34
-  
-  const pokemonIndex = url.slice(startPoint, url.length-1)
-  console.log(url)
-  console.log(pokemonIndex)
+  const pokemonIndex = url.slice(startPoint, url.length - 1);
+  // console.log(url)
+  // console.log(pokemonIndex)
 
   return (
     <>
